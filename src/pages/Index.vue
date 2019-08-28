@@ -1,8 +1,15 @@
 <template>
-  <Main></Main>
+  <Main>
+    <Contact />
+    <Menu />
+  </Main>
 </template>
 
 <script>
+import Contact from "./Contact.vue";
+import Menu from "./Menu.vue";
+import About from "./About.vue";
+
 export default {
   metaInfo: {
     title: "Hello, world!"

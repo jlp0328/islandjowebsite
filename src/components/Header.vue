@@ -46,10 +46,13 @@ img {
     display: flex;
     justify-content: flex-end;
     padding: 10px 25px;
+    position: relative;
   }
 
   img {
     width: 245px;
+    position: absolute;
+    top: 0;
   }
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="ij--nav-bar-main">
+    <div v-if="$mq !== 'mobile'" class="ij--nav-bar-main">
       <h3>About</h3>
       <h3>Menu</h3>
       <h3>Contact & Location</h3>
     </div>
-    <div class="phone-menu">
+    <div v-if="$mq === 'mobile'" class="phone-menu">
       <ClientOnly>
         <Slide noOverlay>
           <h3>About</h3>
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-// import { Slide } from "vue-burger-menu";
 export default {
   name: "NavBar",
   components: {

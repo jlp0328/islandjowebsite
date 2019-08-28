@@ -1,0 +1,18 @@
+{
+  "name": "islandjowebsite",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "gridsome": "^0.6.0",
+    "vue-burger-menu": "^2.0.2"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.3.1",
+    "style-resources-loader": "^1.2.1"
+  }
+}

@@ -1,7 +1,8 @@
 <template>
   <Main>
-    <Contact />
-    <Menu />
+    <About />
+    <!-- <Contact />
+    <Menu />-->
   </Main>
 </template>
 
@@ -11,8 +12,10 @@ import Menu from "./Menu.vue";
 import About from "./About.vue";
 
 export default {
-  metaInfo: {
-    title: "Hello, world!"
+  components: {
+    About,
+    Contact,
+    Menu
   }
 };
 </script>

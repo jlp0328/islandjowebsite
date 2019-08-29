@@ -1,14 +1,48 @@
 <template>
-  <Layout>
-    <h1>About us</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error doloremque omnis animi, eligendi magni a voluptatum, vitae, consequuntur rerum illum odit fugit assumenda rem dolores inventore iste reprehenderit maxime! Iusto.</p>
-  </Layout>
+  <div class="main-wrapper">
+    <section class="welcome-wrapper">
+      <h1>Welcome to Island Jo</h1>
+      <h2>Oak Island, NC</h2>
+    </section>
+    <section>
+      <p>Island Jo is a locally owned and operated coffee shop and cafe in beautiful Oak Island, NC. Our menu has a wide variety of options including breakfast, lunch, baked goods, coffee, and more!</p>
+    </section>
+    <section class="image-wrapper">
+      <img src="../assets/Island_Jo_ExtandInterior.jpg" />
+    </section>
+  </div>
 </template>
 
 <script>
-export default {
-  metaInfo: {
-    title: 'About us'
+export default {};
+</script>
+
+<style lang="scss" scoped>
+.main-wrapper {
+  padding: 10px 25px 65px 25px;
+  overflow-y: scroll;
+}
+
+.welcome-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrapper {
+  img {
+    height: auto;
+    @media only screen and (max-width: 450px) {
+      width: 350px;
+    }
   }
 }
-</script>
+
+h1,
+h2 {
+  @media only screen and (max-width: 450px) {
+    margin: unset;
+  }
+}
+</style>

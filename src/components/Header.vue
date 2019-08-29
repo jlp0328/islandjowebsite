@@ -32,7 +32,7 @@ img {
   width: 300px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 450px) {
   h1 {
     font-size: 1.5em;
   }
@@ -47,6 +47,7 @@ img {
     justify-content: flex-end;
     padding: 10px 25px;
     position: relative;
+    min-height: 175px;
   }
 
   img {

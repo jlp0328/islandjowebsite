@@ -21,5 +21,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+body {
+  font-family: aleo;
+}
 </style>

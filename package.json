@@ -8,6 +8,9 @@
   },
   "dependencies": {
     "gridsome": "^0.6.0",
+    "install": "^0.13.0",
+    "npm": "^6.11.2",
+    "typeface-aleo": "0.0.69",
     "vue-burger-menu": "^2.0.2",
     "vue-mq": "^1.0.1"
   },

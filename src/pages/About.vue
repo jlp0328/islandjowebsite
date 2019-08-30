@@ -7,7 +7,8 @@
     <section>
       <p>
         Island Jo is a locally owned and operated coffee shop and cafe in beautiful Oak Island, NC. Our
-        <g-link class to="/menu">menu</g-link><span></span> has a wide variety of options including breakfast, lunch, baked goods, coffee, and more!
+        <g-link class to="/menu">menu</g-link>
+        <span></span> has a wide variety of options including breakfast, lunch, baked goods, coffee, and more!
       </p>
     </section>
     <section class="image-wrapper">
@@ -40,6 +41,7 @@ export default {};
     height: auto;
     @media only screen and (max-width: 450px) {
       width: 350px;
+      height: 350px;
     }
   }
 }

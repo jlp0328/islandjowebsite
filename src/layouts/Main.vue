@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Nav />
     <Header v-if="$mq === 'mobile'" />
+    <Nav />
     <slot />
     <Footer />
   </div>

@@ -1,8 +1,11 @@
 <template>
   <div class="main-wrapper">
-    <section class="welcome-wrapper">
-      <h1>Welcome to Island Jo</h1>
-      <h2>Oak Island, NC</h2>
+    <section class="welcome-icon-wrapper">
+      <div class="welcome-only">
+        <h1>Welcome to Island Jo</h1>
+        <h2>Oak Island, NC</h2>
+      </div>
+      <Header v-if="$mq !== 'mobile'" />
     </section>
     <section>
       <p>
@@ -18,20 +21,38 @@
 </template>
 
 <script>
-export default {};
+import Header from "../components/Header";
+export default {
+  components: {
+    Header
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 .main-wrapper {
-  padding: 10px 25px 65px 25px;
+  padding: $main-container-padding;
+  min-height: $main-container-min-height;
   overflow-y: scroll;
 }
 
-.welcome-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.welcome-icon-wrapper {
+  @media only screen and (min-width: $mobile-breakpoint) {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+    margin-top: 60px;
+  }
+}
+
+.welcome-only {
+  @media only screen and (max-width: $mobile-breakpoint) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
 }
 
 .image-wrapper {
@@ -39,16 +60,16 @@ export default {};
   justify-content: center;
   img {
     height: auto;
-    @media only screen and (max-width: 450px) {
-      width: 350px;
-      height: 350px;
+    @media only screen and (max-width: $mobile-breakpoint) {
+      width: 300px;
+      height: 300px;
     }
   }
 }
 
 h1,
 h2 {
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     margin: unset;
   }
 }

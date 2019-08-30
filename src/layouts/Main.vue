@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header />
     <Nav />
+    <Header v-if="$mq === 'mobile'" />
     <slot />
     <Footer />
   </div>
@@ -24,5 +24,6 @@ export default {
 <style lang="scss">
 body {
   font-family: aleo;
+  margin: unset;
 }
 </style>

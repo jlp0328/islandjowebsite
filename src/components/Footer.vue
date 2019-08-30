@@ -10,14 +10,14 @@
 export default {};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
   background: #e24665;
   color: white;
-  height: 60px;
+  height: $nav-height;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -30,6 +30,10 @@ export default {};
   margin: 0 15px;
   filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(338deg)
     brightness(108%) contrast(100%);
+  @media only screen and (max-width: $mobile-breakpoint) {
+    height: 25px;
+    width: 25px;
+  }
 }
 
 .facebook {
@@ -42,12 +46,5 @@ export default {};
 
 .google {
   background: transparent url("../assets/google.svg") no-repeat;
-}
-
-@media only screen and (max-width: 600px) {
-  .icon {
-    height: 25px;
-    width: 25px;
-  }
 }
 </style>

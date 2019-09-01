@@ -25,5 +25,8 @@ export default {
 body {
   font-family: aleo;
   margin: unset;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    height: calc(100vh - 60px);
+  }
 }
 </style>

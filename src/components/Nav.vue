@@ -11,6 +11,8 @@
           <g-link class to="/">About</g-link>
           <g-link class to="/menu">Menu</g-link>
           <g-link class to="/contact">Contact & Location</g-link>
+          <h3>Open Daily, 7:30am - 2pm</h3>
+          <h3>(910) 250 - 1677</h3>
         </Slide>
       </ClientOnly>
     </div>
@@ -55,5 +57,11 @@ a:-webkit-any-link {
   font-size: 24px;
   color: white;
   text-decoration: none;
+}
+
+h3 {
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 18px;
+  }
 }
 </style>

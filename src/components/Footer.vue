@@ -15,7 +15,7 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #e24665;
+  background: $island-jo-pink;
   color: white;
   height: $nav-height;
   position: fixed;

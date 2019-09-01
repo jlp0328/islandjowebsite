@@ -11,8 +11,12 @@
           <g-link class to="/">About</g-link>
           <g-link class to="/menu">Menu</g-link>
           <g-link class to="/contact">Contact & Location</g-link>
-          <h3>Open Daily, 7:30am - 2pm</h3>
-          <h3>(910) 250 - 1677</h3>
+          <div class="restaurant-details">
+            <h3>Open Daily, 7:30am - 2pm</h3>
+            <h3>
+              <a href="tel:1-910-250-1677">(910) 250 - 1677</a>
+            </h3>
+          </div>
         </Slide>
       </ClientOnly>
     </div>
@@ -39,7 +43,7 @@ export default {
 .ij--nav-bar-main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background: #e24665;
+  background: $island-jo-pink;
   color: white;
   height: $nav-height;
   position: fixed;
@@ -59,9 +63,19 @@ a:-webkit-any-link {
   text-decoration: none;
 }
 
-h3 {
-  @media only screen and (max-width: $mobile-breakpoint) {
-    font-size: 18px;
+.restaurant-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 65px;
+  margin: 20px 10px;
+  h3,
+  h3 a:-webkit-any-link {
+    @media only screen and (max-width: $mobile-breakpoint) {
+      font-size: 18px;
+      color: whitesmoke;
+      margin: unset;
+    }
   }
 }
 </style>

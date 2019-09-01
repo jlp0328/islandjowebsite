@@ -1,10 +1,10 @@
 <template>
   <Main>
     <div class="contact-main-wrapper">
-      <h2>Contact & Location</h2>
+      <h1>Contact & Location</h1>
       <div class="details-wrapper">
         <section>
-          <h3>Open Daily, 7:30am - 2pm</h3>
+          <h2>Open Daily, 7:30am - 2pm</h2>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.2470504039716!2d-78.08748068478876!3d33.90904068064504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x454a97dd68cb4a80!2sIsland%20Jo%20Coffee%20%26%20Cafe!5e0!3m2!1sen!2sus!4v1567190569925!5m2!1sen!2sus"
             frameborder="0"
@@ -15,7 +15,9 @@
         <section class="phone-and-address">
           <p>
             <strong>Phone Number:</strong>
-            <span>(910) 250 - 1677</span>
+            <span>
+              <a href="tel:1-910-250-1677">(910) 250 - 1677</a>
+            </span>
           </p>
           <p>
             <strong>Address:</strong>
@@ -45,12 +47,6 @@ export default {};
   h2 {
     @media only screen and (max-width: $mobile-breakpoint) {
       margin: 20px 0px;
-    }
-  }
-
-  h3 {
-    @media only screen and (max-width: $mobile-breakpoint) {
-      font-size: 20px;
       text-align: center;
     }
   }

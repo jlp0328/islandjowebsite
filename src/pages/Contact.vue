@@ -40,8 +40,6 @@ export default {};
   padding: $main-container-padding;
   min-height: $main-container-min-height;
   @media only screen and (max-width: $mobile-breakpoint) {
-    height: calc(100vh - (195px + 60px));
-    overflow-y: scroll;
   }
 
   h2 {

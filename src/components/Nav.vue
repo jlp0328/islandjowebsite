@@ -3,14 +3,14 @@
     <div v-if="$mq !== 'mobile'" class="ij--nav-bar-main">
       <g-link class to="/">About</g-link>
       <g-link class to="/menu">Menu</g-link>
-      <g-link class to="/contact">Contact & Location</g-link>
+      <g-link class to="/contact">Contact</g-link>
     </div>
     <div v-if="$mq === 'mobile'" class="phone-menu">
       <ClientOnly>
         <Slide noOverlay>
           <g-link class to="/">About</g-link>
           <g-link class to="/menu">Menu</g-link>
-          <g-link class to="/contact">Contact & Location</g-link>
+          <g-link class to="/contact">Contact</g-link>
           <div class="restaurant-details">
             <h3>Open Daily, 7:30am - 2pm</h3>
             <h3>
@@ -45,7 +45,7 @@ export default {
   grid-template-columns: repeat(3, 1fr);
   background: $island-jo-pink;
   color: white;
-  height: $nav-height;
+  height: $standard-nav-height;
   position: fixed;
   width: 100%;
   top: 0;

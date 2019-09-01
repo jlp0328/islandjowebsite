@@ -17,7 +17,10 @@ export default {};
   align-items: center;
   background: $island-jo-pink;
   color: white;
-  height: $nav-height;
+  height: $standard-nav-height;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    height: $mobile-nav-height;
+  }
   position: fixed;
   bottom: 0;
   left: 0;

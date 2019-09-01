@@ -1,7 +1,7 @@
 <template>
   <Main>
     <div class="contact-main-wrapper">
-      <h1>Contact & Location</h1>
+      <h1>Contact</h1>
       <div class="details-wrapper">
         <section>
           <h2>Open Daily, 7:30am - 2pm</h2>

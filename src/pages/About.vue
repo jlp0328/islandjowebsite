@@ -7,7 +7,7 @@
       </div>
       <Header v-if="$mq !== 'mobile'" />
     </section>
-    <section>
+    <section class="restaurant-summary">
       <p>
         Island Jo is a locally owned and operated coffee shop and cafe in beautiful Oak Island, NC. Our
         <g-link class to="/menu">menu</g-link>
@@ -46,6 +46,10 @@ export default {
 }
 
 .welcome-only {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   @media only screen and (max-width: $mobile-breakpoint) {
     display: flex;
     flex-direction: column;
@@ -55,14 +59,28 @@ export default {
   }
 }
 
+.restaurant-summary {
+  padding: 0 40px;
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    font-size: 25px;
+  }
+}
+
 .image-wrapper {
   display: flex;
   justify-content: center;
   img {
-    height: auto;
     @media only screen and (max-width: $mobile-breakpoint) {
       width: 300px;
       height: 300px;
+    }
+    @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+      width: 700px;
+      height: 700px;
+    }
+    @media only screen and (min-width: $laptop-min-breakpoint) {
+      width: 900px;
+      height: 900px;
     }
   }
 }

@@ -1,10 +1,15 @@
 $mobile-breakpoint: 450px;
+
 $tablet-breakpoint: 900px;
+$tablet-min-breakpoint: 451px;
+
 $laptop-breakpoint: 1250px;
+$laptop-min-breakpoint: 901px;
 
-$nav-height: 60px;
+$mobile-nav-height: 60px;
+$standard-nav-height: 75px;
 
-$main-container-padding: 10px 25px 65px 25px;
+$main-container-padding: 10px 25px 75px 25px;
 $main-container-min-height: 250px;
 
 $island-jo-pink: #e24665;
@@ -13,11 +18,23 @@ h1 {
   @media only screen and (max-width: $mobile-breakpoint) {
     font-size: 28px;
   }
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    font-size: 32px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) {
+    font-size: 36px;
+  }
 }
 
 h2 {
   @media only screen and (max-width: $mobile-breakpoint) {
     font-size: 22px;
+  }
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    font-size: 25px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) {
+    font-size: 28px;
   }
 }
 

@@ -61,8 +61,11 @@ export default {
 
 .restaurant-summary {
   padding: 0 40px;
-  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
-    font-size: 25px;
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $laptop-breakpoint) {
+    font-size: 28px;
+  }
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+    font-size: 32px;
   }
 }
 
@@ -78,9 +81,13 @@ export default {
       width: 700px;
       height: 700px;
     }
-    @media only screen and (min-width: $laptop-min-breakpoint) {
+    @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
       width: 900px;
       height: 900px;
+    }
+    @media only screen and (min-width: $desktop-min-breakpoint) {
+      width: 1000px;
+      height: 1000px;
     }
   }
 }

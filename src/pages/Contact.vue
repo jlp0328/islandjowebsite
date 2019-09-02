@@ -51,9 +51,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: $desktop-nav-height;
   padding: $main-container-padding;
   min-height: $main-container-min-height;
+  @media only screen and (min-width: $tablet-min-breakpoint) {
+    margin-top: $desktop-nav-height;
+  }
 
   h2 {
     @media only screen and (max-width: $mobile-breakpoint) {
@@ -64,9 +66,11 @@ export default {
 }
 
 .contact-header {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  @media only screen and (min-width: $tablet-min-breakpoint) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
   div {
     display: flex;
     flex-direction: column;
@@ -86,7 +90,7 @@ export default {
     align-items: center;
   }
   @media only screen and (orientation: portrait) {
-    margin-top: 35px;
+    margin-top: 20px;
   }
 }
 
@@ -108,7 +112,7 @@ iframe {
     width: 500px;
     height: 300px;
   }
-  @media only screen and (max-width: $tablet-breakpoint) and (orientation: portrait) {
+  @media only screen and (orientation: portrait) and (min-width: $tablet-min-breakpoint) {
     width: 450px;
     height: 250px;
     margin: 10px;
@@ -165,7 +169,7 @@ iframe {
     }
   }
   @media only screen and (min-width: $desktop-min-breakpoint) {
-          height: 500px;
+    height: 500px;
     p,
     a {
       font-size: 32px;

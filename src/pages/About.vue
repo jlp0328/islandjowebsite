@@ -36,7 +36,7 @@ export default {
   overflow-y: scroll;
   margin-top: $standard-nav-height;
   @media only screen and (max-width: $mobile-breakpoint) {
-    margin-top: $mobile-nav-height;
+    margin-top: unset;
   }
   @media only screen and (min-width: $desktop-min-breakpoint) {
     margin-top: $desktop-nav-height;
@@ -66,12 +66,13 @@ export default {
 }
 
 .restaurant-summary {
-  padding: 0 40px;
   @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $laptop-breakpoint) {
     font-size: 28px;
+    padding: 0 40px;
   }
   @media only screen and (min-width: $desktop-min-breakpoint) {
     font-size: 32px;
+    padding: 0 40px;
   }
 }
 

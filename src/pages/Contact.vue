@@ -1,10 +1,17 @@
 <template>
   <Main>
     <div class="contact-main-wrapper">
-      <h1>Contact</h1>
-      <div class="details-wrapper">
-        <section>
+      <section class="contact-header">
+        <div>
+          <h1>Contact Us</h1>
           <h2>Open Daily, 7:30am - 2pm</h2>
+        </div>
+
+        <Header v-if="$mq !== 'mobile'" />
+      </section>
+
+      <div class="details-wrapper">
+        <section class="iframe-wrapper">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.2470504039716!2d-78.08748068478876!3d33.90904068064504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x454a97dd68cb4a80!2sIsland%20Jo%20Coffee%20%26%20Cafe!5e0!3m2!1sen!2sus!4v1567190569925!5m2!1sen!2sus"
             frameborder="0"
@@ -31,7 +38,12 @@
 </template>
 
 <script>
-export default {};
+import Header from "../components/Header";
+export default {
+  components: {
+    Header
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -39,10 +51,9 @@ export default {};
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: $desktop-nav-height;
   padding: $main-container-padding;
   min-height: $main-container-min-height;
-  @media only screen and (max-width: $mobile-breakpoint) {
-  }
 
   h2 {
     @media only screen and (max-width: $mobile-breakpoint) {
@@ -52,15 +63,37 @@ export default {};
   }
 }
 
+.contact-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .details-wrapper {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  @media only screen and (max-width: $mobile-breakpoint) {
+  @media only screen and (max-width: $mobile-breakpoint),
+    screen and (orientation: portrait) {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+  @media only screen and (orientation: portrait) {
+    margin-top: 35px;
+  }
+}
+
+.iframe-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 iframe {
@@ -71,26 +104,74 @@ iframe {
     height: 250px;
     margin: 10px;
   }
-  //   @media only screen and (max-width: $tablet-breakpoint) {
-  //     width: 600px;
-  //     height: 450px;
-  //   }
+  @media only screen and (min-width: $laptop-min-breakpoint) {
+    width: 500px;
+    height: 300px;
+  }
+  @media only screen and (max-width: $tablet-breakpoint) and (orientation: portrait) {
+    width: 450px;
+    height: 250px;
+    margin: 10px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) and (orientation: portrait) {
+    width: 750px;
+    height: 350px;
+    margin: 10px;
+  }
 }
 
 .phone-and-address {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p,
+  a {
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    strong {
+      font-size: 28px;
+    }
+  }
+  a:-webkit-any-link {
+    text-decoration: none;
+    color: unset;
+  }
+
   @media only screen and (max-width: $mobile-breakpoint) {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
-    font-size: 18px;
-    p {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    p,
+    a {
+      font-size: 18px;
+      strong {
+        font-size: 20px;
+      }
     }
-    p strong {
-      font-size: 20px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
+    p,
+    a {
+      font-size: 28px;
+      strong {
+        font-size: 32px;
+      }
+    }
+  }
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+          height: 500px;
+    p,
+    a {
+      font-size: 32px;
+      strong {
+        font-size: 36px;
+      }
     }
   }
 }

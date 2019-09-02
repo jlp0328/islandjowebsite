@@ -34,6 +34,13 @@ export default {
   padding: $main-container-padding;
   min-height: $main-container-min-height;
   overflow-y: scroll;
+  margin-top: $standard-nav-height;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    margin-top: $mobile-nav-height;
+  }
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+    margin-top: $desktop-nav-height;
+  }
 }
 
 .welcome-icon-wrapper {
@@ -41,7 +48,6 @@ export default {
     display: grid;
     grid-template-columns: 50% 50%;
     justify-items: center;
-    margin-top: 60px;
   }
 }
 
@@ -78,8 +84,8 @@ export default {
       height: 300px;
     }
     @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
-      width: 700px;
-      height: 700px;
+      width: 600px;
+      height: 600px;
     }
     @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
       width: 900px;

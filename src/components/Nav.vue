@@ -55,12 +55,18 @@ export default {
     justify-content: center;
     align-items: center;
   }
+  @media only screen and (min-width: $laptop-min-breakpoint) {
+    height: $desktop-nav-height;
+  }
 }
 
 a:-webkit-any-link {
   font-size: 24px;
   color: white;
   text-decoration: none;
+  @media only screen and (min-width: $laptop-min-breakpoint) {
+    font-size: 32px;
+  }
 }
 
 .restaurant-details {

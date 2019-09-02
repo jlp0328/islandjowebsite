@@ -2,7 +2,7 @@
   <div class="footer">
     <a href="https://www.facebook.com/IslandJoCoffeeNCafe/" target="_blank" class="facebook icon"></a>
     <a href="https://www.instagram.com/islandjo_oki/" target="_blank" class="instagram icon"></a>
-    <a href="https://goo.gl/maps/bDvVzm8J2enWqq5X8" target="_blank" class="google icon"></a>
+    <a href="https://g.page/IslandJo/review" target="_blank" class="google icon"></a>
   </div>
 </template>
 
@@ -20,6 +20,9 @@ export default {};
   height: $standard-nav-height;
   @media only screen and (max-width: $mobile-breakpoint) {
     height: $mobile-nav-height;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) {
+    height: $desktop-nav-height;
   }
   position: fixed;
   bottom: 0;

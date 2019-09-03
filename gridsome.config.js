@@ -10,8 +10,16 @@ function addStyleResource(rule) {
 }
 
 module.exports = {
-  siteName: "Gridsome",
-  plugins: [],
+  siteName: "Island Jo Coffee-n-Cafe",
+  plugins: [
+    {
+      use: "gridsome-source-google-sheets",
+      options: {
+        sheetId: "1hnSgPEPzV3juRxuWB-melNUApKiNwM0wQyFOeqcfkIE",
+        apiKey: "AIzaSyDbkx3KI-bBCI0aRVgbbRwC0p7tymDvcg4 "
+      }
+    }
+  ],
   chainWebpack: config => {
     const types = ["vue-modules", "vue", "normal-modules", "normal"];
     types.forEach(type => {

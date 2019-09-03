@@ -1,17 +1,78 @@
 <template>
   <Main>
     <div class="main-menu-container">
-      <h2>MENU</h2>
-      <Header v-if="$mq !== 'mobile'" />
+      <section>
+        <h2>MENU</h2>
+        <Header v-if="$mq !== 'mobile'" />
+      </section>
+      <section>
+        <div
+          v-for="(name, value) in this.groupedMenu"
+          v-bind:key="value"
+          class="menu-category-collapsible"
+        >
+          <input :id="value" class="toggle" type="checkbox" />
+          <label :for="value" class="lbl-toggle">{{value | capitalize }}</label>
+          <div class="collapsible-content">
+            <div class="content-inner">
+              <p>
+                QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                plug-ins. Test-Driven Development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </Main>
 </template>
 
+<static-query>
+  query Menu {
+    allgoogleSheet {
+      edges {
+        node {
+            category
+            item_
+            description
+            price
+            cup
+            bowl
+            id
+        }
+      }
+    }
+  }
+</static-query>
+
 <script>
+const { groupBy } = require("lodash");
+const { orderBy } = require("lodash");
+
 import Header from "../components/Header";
 export default {
   components: {
     Header
+  },
+  data: {
+    groupedMenu: {}
+  },
+  filters: {
+    capitalize: function(value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+  },
+  created() {
+    let allMenu = this.$static.allgoogleSheet.edges;
+    allMenu = allMenu.map(elem => {
+      return elem.node;
+    });
+    allMenu = orderBy(allMenu, ["category"]);
+    this.groupedMenu = groupBy(allMenu, "category");
+    console.log(this.groupedMenu);
   }
 };
 </script>
@@ -20,5 +81,95 @@ export default {
 .main-menu-container {
   padding: $main-container-padding;
   min-height: $main-container-min-height;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media only screen and (min-width: $tablet-min-breakpoint) {
+    margin-top: $desktop-nav-height;
+  }
+  h2 {
+    @media only screen and (max-width: $mobile-breakpoint) {
+      margin: 20px 0px;
+      text-align: center;
+    }
+  }
+}
+
+.menu-category-collapsible {
+  @media only screen and (max-width: $mobile-breakpoint) {
+    display: grid;
+    grid-gap: 10px;
+  }
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.lbl-toggle {
+  display: block;
+
+  padding: 1rem;
+
+  color: white;
+  background: #3d908a;
+
+  cursor: pointer;
+
+  border-radius: 7px;
+  transition: all 0.25s ease-out;
+}
+
+.lbl-toggle:hover {
+  color: white;
+}
+
+.lbl-toggle::before {
+  content: " ";
+  display: inline-block;
+
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid currentColor;
+
+  vertical-align: middle;
+  margin-right: 0.7rem;
+  transform: translateY(-2px);
+
+  transition: transform 0.2s ease-out;
+}
+
+.collapsible-content .content-inner {
+  background: rgba(250, 224, 66, 0.2);
+  border-bottom: 1px solid rgba(250, 224, 66, 0.45);
+
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: 0.5rem 1rem;
+
+  margin-bottom: 10px;
+}
+
+.collapsible-content {
+  max-height: 0px;
+  overflow: hidden;
+
+  transition: max-height 0.25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+  max-height: 350px;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    transform: translateY(-10px);
+  }
+}
+
+.toggle:checked + .lbl-toggle::before {
+  transform: rotate(90deg) translateX(-3px);
+}
+
+.toggle:checked + .lbl-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 </style>

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "gridsome": "^0.6.0",
+    "gridsome-source-google-sheets": "^0.3.1",
     "install": "^0.13.0",
     "npm": "^6.11.2",
     "typeface-aleo": "0.0.69",

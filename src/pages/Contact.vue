@@ -108,10 +108,16 @@ iframe {
     height: 250px;
     margin: 10px;
   }
-  @media only screen and (min-width: $laptop-min-breakpoint) {
+  @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
     width: 500px;
     height: 300px;
   }
+
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+    width: 600px;
+    height: 500px;
+  }
+
   @media only screen and (orientation: portrait) and (min-width: $tablet-min-breakpoint) {
     width: 450px;
     height: 250px;
@@ -120,7 +126,7 @@ iframe {
   @media only screen and (min-width: $laptop-min-breakpoint) and (orientation: portrait) {
     width: 750px;
     height: 350px;
-    margin: 10px;
+    margin: 50px 0;
   }
 }
 

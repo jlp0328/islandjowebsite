@@ -7,19 +7,15 @@
       </section>
       <section>
         <div
-          v-for="(name, value) in this.groupedMenu"
-          v-bind:key="value"
+          v-for="(value, name) in this.groupedMenu"
+          v-bind:key="name"
           class="menu-category-collapsible"
         >
-          <input :id="value" class="toggle" type="checkbox" />
-          <label :for="value" class="lbl-toggle">{{value | capitalize }}</label>
+          <input :id="name" class="toggle" type="checkbox" />
+          <label :for="name" class="lbl-toggle">{{name | capitalize }}</label>
           <div class="collapsible-content">
             <div class="content-inner">
-              <p>
-                QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
-                its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
-                plug-ins. Test-Driven Development.
-              </p>
+              <SubMenu :menuCategory="name" :itemDetails="value" />
             </div>
           </div>
         </div>
@@ -34,7 +30,7 @@
       edges {
         node {
             category
-            item_
+            item
             description
             price
             cup
@@ -51,9 +47,11 @@ const { groupBy } = require("lodash");
 const { orderBy } = require("lodash");
 
 import Header from "../components/Header";
+import SubMenu from "../components/SubMenu";
 export default {
   components: {
-    Header
+    Header,
+    SubMenu
   },
   data: {
     groupedMenu: {}
@@ -99,6 +97,7 @@ export default {
   @media only screen and (max-width: $mobile-breakpoint) {
     display: grid;
     grid-gap: 10px;
+    width: 85vw;
   }
 }
 
@@ -152,7 +151,7 @@ input[type="checkbox"] {
 
 .collapsible-content {
   max-height: 0px;
-  overflow: hidden;
+  overflow-y: scroll;
 
   transition: max-height 0.25s ease-in-out;
 }

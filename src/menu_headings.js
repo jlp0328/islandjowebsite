@@ -1,7 +1,7 @@
 export default Object({
   BAGELS: "",
   BEVERAGES:
-    "We have a large selection of coffee and espresso drinks that can be served hot or cold. We also carry quite a few sugar-free syrups. Additionally we offer the following beverages:",
+    "We have a large selection of coffee and espresso drinks that can be served hot or cold. We also carry quite a few sugar-free syrups.",
   BREAKFAST:
     "Breakfast sandwiches are served on your choice of bagel, croissant, wheat, rye, or sourdough.",
   KIDS: "Served with chips and a cookie.",

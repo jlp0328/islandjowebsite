@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h3>{{this.heading}}</h3>
+    <h3 v-if="this.heading !== ''">{{this.heading}}</h3>
     <div class="item-details-bev" v-if="this.menuCategory === 'beverages'">
       <div v-for="details in this.itemDetails" :key="details.id">
+        <p>Additionally we offer the following beverages:</p>
         <p>{{details.item}}</p>
       </div>
     </div>
@@ -18,8 +19,14 @@
     <div v-else-if="this.menuCategory === 'soups'">
       <div class="item-details-soup" v-for="details in this.itemDetails" :key="details.id">
         <p class="item-name">{{details.item}}</p>
-        <p>Cup: {{details.cup}}</p>
-        <p>Bowl: {{details.bowl}}</p>
+        <p class="size-center">
+          <span class="underline">Cup:</span>
+          {{details.cup}}
+        </p>
+        <p class="size-center">
+          <span class="underline">Bowl:</span>
+          {{details.bowl}}
+        </p>
       </div>
     </div>
     <div v-else>
@@ -45,9 +52,9 @@ export default {
     }
   },
   created() {
-    if (this.menuCategory === "bagels") {
-      this.itemDetails.reverse();
-    }
+    // if (this.menuCategory === "bagels") {
+    //   this.itemDetails.reverse();
+    // }
     this.heading = this.determineHeading();
     console.log(this.itemDetails);
   }
@@ -75,9 +82,15 @@ export default {
 .item-details-soup {
   @media only screen and (max-width: $mobile-breakpoint) {
     display: grid;
-    grid-template-columns: 48% 25% 27%;
+    grid-template-columns: 60% 20% 20%;
     align-items: center;
     justify-items: start;
+    .size-center {
+      text-align: center;
+      .underline {
+        text-decoration: underline;
+      }
+    }
   }
 }
 

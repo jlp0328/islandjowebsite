@@ -2,10 +2,10 @@
   <Main>
     <div class="main-menu-container">
       <section>
-        <h2>MENU</h2>
+        <h2 v-if="$mq === 'mobile'">MENU</h2>
         <Header v-if="$mq !== 'mobile'" />
       </section>
-      <section>
+      <section class="menu-category-containers">
         <div
           v-for="(value, name) in this.groupedMenu"
           v-bind:key="name"
@@ -91,6 +91,14 @@ export default {
       margin: 20px 0px;
       text-align: center;
     }
+  }
+}
+
+.menu-category-containers {
+  @media only screen and (min-width: $tablet-min-breakpoint) {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 12px;
   }
 }
 

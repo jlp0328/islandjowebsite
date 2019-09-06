@@ -3,6 +3,7 @@
     <div v-if="$mq !== 'mobile'" class="ij--nav-bar-main">
       <g-link class to="/">About</g-link>
       <g-link class to="/menu">Menu</g-link>
+      <g-link class to="/gallery">Gallery</g-link>
       <g-link class to="/contact">Contact</g-link>
     </div>
     <div v-if="$mq === 'mobile'" class="phone-menu">
@@ -10,6 +11,7 @@
         <Slide noOverlay>
           <g-link class to="/">About</g-link>
           <g-link class to="/menu">Menu</g-link>
+          <g-link class to="/gallery">Gallery</g-link>
           <g-link class to="/contact">Contact</g-link>
           <div class="restaurant-details">
             <h3>Open Daily, 7:30am - 2pm</h3>
@@ -42,7 +44,7 @@ export default {
 <style lang="scss" scoped>
 .ij--nav-bar-main {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   background: $island-jo-pink;
   color: white;
   height: $standard-nav-height;

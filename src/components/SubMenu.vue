@@ -1,18 +1,28 @@
 <template>
   <div>
     <h3 v-if="this.heading !== ''">{{this.heading}}</h3>
-    <div class="item-details-bev" v-if="this.menuCategory === 'beverages'">
-      <div v-for="details in this.itemDetails" :key="details.id">
-        <p>Additionally we offer the following beverages:</p>
-        <p>{{details.item}}</p>
+    <div v-if="this.menuCategory === 'beverages'">
+      <p>In addition to our coffee and espresso drinks, we offer the following beverages:</p>
+      <div class="item-details-bev">
+        <div v-for="details in this.itemDetails" :key="details.id">
+          <p>{{details.item}}</p>
+        </div>
       </div>
     </div>
     <div v-else-if="this.menuCategory === 'sandwiches'">
+      <p>
+        <span>&#x1f96a;</span> eligible half sandwich
+      </p>
       <div v-for="details in this.itemDetails" :key="details.id">
-        <p class="item-name">{{details.item}}</p>
-        <p>
-          <span>{{details.description}}</span>...
-          <span>{{details.price}}</span>
+        <div class="item-details-main">
+          <p class="item-name">
+            <span v-if="details.half === 'TRUE'">&#x1f96a;</span>
+            {{details.item}}
+          </p>
+          <p>{{details.price}}</p>
+        </div>
+        <p class="sandwich-desc">
+          <span>{{details.description}}</span>
         </p>
       </div>
     </div>
@@ -42,8 +52,10 @@
 import MenuHeadings from "../menu_headings";
 
 export default {
-  date: {
-    heading: ""
+  data: function() {
+    return {
+      heading: ""
+    };
   },
   props: ["menuCategory", "itemDetails"],
   methods: {
@@ -91,6 +103,13 @@ export default {
         text-decoration: underline;
       }
     }
+  }
+}
+
+.sandwich-desc {
+  @media only screen and (max-width: $mobile-breakpoint) {
+    margin-bottom: 6px;
+    margin-top: unset;
   }
 }
 

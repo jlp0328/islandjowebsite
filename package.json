@@ -7,6 +7,7 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "@zefman/gridsome-source-instagram": "^0.1.2",
     "gridsome": "^0.6.0",
     "gridsome-source-google-sheets": "^0.3.1",
     "install": "^0.13.0",

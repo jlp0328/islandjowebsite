@@ -36,6 +36,7 @@
             cup
             bowl
             id
+            half
         }
       }
     }
@@ -152,7 +153,7 @@ input[type="checkbox"] {
 .collapsible-content {
   max-height: 0px;
   overflow-y: scroll;
-
+  -webkit-overflow-scrolling: touch;
   transition: max-height 0.25s ease-in-out;
 }
 

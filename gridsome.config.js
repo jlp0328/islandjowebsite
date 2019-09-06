@@ -18,6 +18,13 @@ module.exports = {
         sheetId: "1hnSgPEPzV3juRxuWB-melNUApKiNwM0wQyFOeqcfkIE",
         apiKey: "AIzaSyDbkx3KI-bBCI0aRVgbbRwC0p7tymDvcg4 "
       }
+    },
+    {
+      use: "@zefman/gridsome-source-instagram",
+      options: {
+        username: "islandjo_oki", // Instagram username
+        typeName: "InstagramPhoto" // The GraphQL type you want the photos to be added under. Defaults to InstagramPhoto
+      }
     }
   ],
   chainWebpack: config => {

@@ -16,14 +16,16 @@ module.exports = {
       use: "gridsome-source-google-sheets",
       options: {
         sheetId: "1hnSgPEPzV3juRxuWB-melNUApKiNwM0wQyFOeqcfkIE",
-        apiKey: "AIzaSyDbkx3KI-bBCI0aRVgbbRwC0p7tymDvcg4 "
+        apiKey: "AIzaSyDbkx3KI-bBCI0aRVgbbRwC0p7tymDvcg4",
+        type: "Menu"
       }
     },
     {
-      use: "@zefman/gridsome-source-instagram",
+      use: "gridsome-source-google-sheets",
       options: {
-        username: "islandjo_oki", // Instagram username
-        typeName: "InstagramPhoto" // The GraphQL type you want the photos to be added under. Defaults to InstagramPhoto
+        sheetId: "1GZiGYPdnldJ41vju2zukUS9O-E7WOOuVjE06wZxtpZ8",
+        apiKey: "AIzaSyDbkx3KI-bBCI0aRVgbbRwC0p7tymDvcg4",
+        type: "Gallery"
       }
     }
   ],

@@ -7,7 +7,7 @@
       </section>
       <section class="photos-wrapper">
         <div v-for="photo in this.photos" :key="photo.id">
-          <g-image :src="photo.url" width="photo.dimensions.width" />
+          <g-image :src="photo.photo" />
         </div>
       </section>
     </div>
@@ -15,21 +15,14 @@
 </template>
 
 <static-query>
-query Photos{ 
-    allInstagramPhoto {
-    edges {
-      node {
-        display_url
-        edge_media_to_caption {
-          edges {
-            node {
-              text
-            }
-          }
-        }
-      }
+query Photo {
+    allGallery {
+  edges {
+    node {
+      photo
     }
   }
+}
 }
 </static-query>
 
@@ -46,16 +39,13 @@ export default {
     };
   },
   created() {
-    let insta = this.$static.allInstagramPhoto.edges;
-    this.photos = insta.map((elem, index) => {
-      console.log(elem);
+    let pic = this.$static.allGallery.edges;
+    this.photos = pic.map((elem, index) => {
       return {
-        url: elem.node.display_url,
-        dimensions: elem.node.dimensions,
+        photo: elem.node.photo,
         id: index
       };
     });
-    console.log(insta);
   }
 };
 </script>
@@ -68,6 +58,7 @@ export default {
   @media only screen and (max-width: $mobile-breakpoint) {
     grid-template-columns: 100%;
     grid-gap: 12px;
+    padding-bottom: 65px;
   }
 }
 .g-image {

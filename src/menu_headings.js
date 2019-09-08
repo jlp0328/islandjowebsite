@@ -1,5 +1,6 @@
 export default Object({
-  BAGELS: "",
+  BAGELS:
+    "Our homemade bagel flavors include: Plain, Everything, Cinnamon Raisin, Blueberry, Sea Salt, Asiaggo Cheese, Sesame, and Poppy Seed.",
   BEVERAGES:
     "We have a large selection of coffee and espresso drinks that can be served hot, cold, and even sugar-free.",
   BREAKFAST:
@@ -9,9 +10,10 @@ export default Object({
   SALADS:
     "Dressing choices include: Homemade Ranch, Bleu Cheese, 1000 Island, Balsamic Vinagrette, Honey Mustard and Italian",
   SANDWICHES:
-    "Sandwiches are served on your choice of bagel, croissant, wheat, rye, or sourdough.",
-  SANDWICHES_SIDES: "Served with chips, pasta salad, potato salad, or slaw.",
-  SOUPS: "",
+    "Sandwiches are served on your choice of bagel, croissant, wheat, rye, or sourdough. Served with your choice of chips, pasta salad, potato salad, or slaw.",
+  SANDWICHES_SIDES:
+    "Served with your choice of chips, pasta salad, potato salad, or slaw.",
+  SOUPS: "Soup is offered on a seasonal basis.",
   WRAPS:
     "Wraps are served on your choice of wheat, spinach, or garlic herb wrap."
 });

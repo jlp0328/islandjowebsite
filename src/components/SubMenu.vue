@@ -10,7 +10,7 @@
       </div>
     </div>
     <div v-else-if="this.menuCategory === 'sandwiches'">
-      <p>
+      <p class="half-sandwich">
         <span>&#x1f96a;</span> eligible half sandwich
       </p>
       <div v-for="details in this.itemDetails" :key="details.id">
@@ -54,7 +54,8 @@ import MenuHeadings from "../menu_headings";
 export default {
   data: function() {
     return {
-      heading: ""
+      heading: "",
+      sandSides: ""
     };
   },
   props: ["menuCategory", "itemDetails"],
@@ -64,10 +65,8 @@ export default {
     }
   },
   created() {
-    // if (this.menuCategory === "bagels") {
-    //   this.itemDetails.reverse();
-    // }
     this.heading = this.determineHeading();
+    this.sandSides = MenuHeadings.SANDWICHES_SIDES;
     console.log(this.itemDetails);
   }
 };
@@ -110,6 +109,12 @@ export default {
   @media only screen and (max-width: $mobile-breakpoint) {
     margin-bottom: 6px;
     margin-top: unset;
+  }
+}
+
+.half-sandwich {
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 14px;
   }
 }
 

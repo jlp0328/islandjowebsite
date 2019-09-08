@@ -4,6 +4,12 @@
       <section>
         <h2 v-if="$mq === 'mobile'">MENU</h2>
         <Header v-if="$mq !== 'mobile'" />
+        <div class="food-pics">
+          <g-image src="../assets/island_jo_fruit.jpg"></g-image>
+          <g-image src="../assets/coffee_bagel.jpg"></g-image>
+          <g-image src="../assets/three_bagels.jpg"></g-image>
+          <g-image src="../assets/drink_croissant.jpg"></g-image>
+        </div>
       </section>
       <section class="menu-category-containers">
         <div
@@ -26,7 +32,7 @@
 
 <static-query>
   query Menu {
-    allgoogleSheet {
+    allMenu {
       edges {
         node {
             category
@@ -65,7 +71,7 @@ export default {
     }
   },
   created() {
-    let allMenu = this.$static.allgoogleSheet.edges;
+    let allMenu = this.$static.allMenu.edges;
     allMenu = allMenu.map(elem => {
       return elem.node;
     });
@@ -94,6 +100,19 @@ export default {
   }
 }
 
+.food-pics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+  margin-bottom: 20px;
+  img {
+    @media only screen and (max-width: $mobile-breakpoint) {
+      width: 75px;
+      height: 75px;
+      border-radius: 10px;
+    }
+  }
+}
 .menu-category-containers {
   @media only screen and (min-width: $tablet-min-breakpoint) {
     display: grid;

@@ -1,8 +1,8 @@
 <template>
   <Main>
-    <div>
+    <div class="main-menu-container">
       <section>
-        <h2 v-if="$mq === 'mobile'">GALLERY</h2>
+        <h2 v-if="$mq === 'mobile'">Gallery</h2>
         <Header v-if="$mq !== 'mobile'" />
       </section>
       <section class="photos-wrapper">
@@ -51,6 +51,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main-menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media only screen and (min-width: $tablet-min-breakpoint) {
+    margin-top: $desktop-nav-height;
+  }
+  h2 {
+    @media only screen and (max-width: $mobile-breakpoint) {
+      margin: 20px 0px;
+      text-align: center;
+    }
+  }
+}
+
 .photos-wrapper {
   display: grid;
   justify-items: center;

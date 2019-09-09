@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="$mq !== 'mobile'" class="ij--nav-bar-main">
-      <g-link class to="/">About</g-link>
+      <g-link class to="/">Home</g-link>
       <g-link class to="/menu">Menu</g-link>
       <g-link class to="/gallery">Gallery</g-link>
       <g-link class to="/contact">Contact</g-link>
@@ -9,7 +9,7 @@
     <div v-if="$mq === 'mobile'" class="phone-menu">
       <ClientOnly>
         <Slide noOverlay>
-          <g-link class to="/">About</g-link>
+          <g-link class to="/">Home</g-link>
           <g-link class to="/menu">Menu</g-link>
           <g-link class to="/gallery">Gallery</g-link>
           <g-link class to="/contact">Contact</g-link>

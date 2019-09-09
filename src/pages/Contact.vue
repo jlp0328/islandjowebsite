@@ -3,8 +3,8 @@
     <div class="contact-main-wrapper">
       <section class="contact-header">
         <div>
-          <h1>Contact Us</h1>
-          <h2>Open Daily, 7:30am - 2pm</h2>
+          <h2>Contact Us</h2>
+          <p class="restaurant-hours">Open Daily, 7:30am - 2pm</p>
         </div>
 
         <Header v-if="$mq !== 'mobile'" />
@@ -78,7 +78,13 @@ export default {
     align-items: center;
   }
 }
-
+.restaurant-hours {
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 25px;
+    font-weight: bold;
+    margin: unset;
+  }
+}
 .details-wrapper {
   width: 100%;
   display: grid;

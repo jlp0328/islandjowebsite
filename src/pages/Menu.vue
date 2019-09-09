@@ -2,7 +2,7 @@
   <Main>
     <div class="main-menu-container">
       <section>
-        <h2 v-if="$mq === 'mobile'">MENU</h2>
+        <h2 v-if="$mq === 'mobile'">Menu</h2>
         <Header v-if="$mq !== 'mobile'" />
         <div class="food-pics">
           <g-image src="../assets/island_jo_fruit.jpg"></g-image>

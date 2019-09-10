@@ -1,9 +1,14 @@
 <template>
   <Main>
     <div class="main-menu-container">
-      <section>
-        <h2 v-if="$mq === 'mobile'">Menu</h2>
-        <Header v-if="$mq !== 'mobile'" />
+      <section class="header-photo-container">
+        <div class="menu-header-wrapper">
+          <div class="flex-center-content">
+            <h2>Menu</h2>
+            <p class="dessert-info">{{this.dessert}}</p>
+          </div>
+          <Header v-if="$mq !== 'mobile'" />
+        </div>
         <div class="food-pics">
           <g-image src="../assets/island_jo_fruit.jpg"></g-image>
           <g-image src="../assets/coffee_bagel.jpg"></g-image>
@@ -15,9 +20,10 @@
         <div
           v-for="(value, name) in this.groupedMenu"
           v-bind:key="name"
-          class="menu-category-collapsible"
+          v-bind:class="isMobile"
+          class
         >
-          <input :id="name" class="toggle" type="checkbox" />
+          <input v-if="$mq === 'mobile'" :id="name" class="toggle" type="checkbox" />
           <label :for="name" class="lbl-toggle">{{name | capitalize }}</label>
           <div class="collapsible-content">
             <div class="content-inner">
@@ -50,6 +56,7 @@
 </static-query>
 
 <script>
+import MenuHeadings from "../menu_headings";
 const { groupBy } = require("lodash");
 const { orderBy } = require("lodash");
 
@@ -61,7 +68,13 @@ export default {
     SubMenu
   },
   data: {
-    groupedMenu: {}
+    groupedMenu: {},
+    dessert: ""
+  },
+  computed: {
+    isMobile() {
+      return this.$mq === "mobile" ? "menu-category-collapsible" : "";
+    }
   },
   filters: {
     capitalize: function(value) {
@@ -77,13 +90,16 @@ export default {
     });
     allMenu = orderBy(allMenu, ["category"]);
     this.groupedMenu = groupBy(allMenu, "category");
-    console.log(this.groupedMenu);
+    this.dessert = MenuHeadings.DESSERTS;
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .main-menu-container {
+  @media only screen and (max-width: $mobile-breakpoint) {
+    padding: $main-container-padding-mobile;
+  }
   padding: $main-container-padding;
   min-height: $main-container-min-height;
   display: flex;
@@ -100,33 +116,83 @@ export default {
   }
 }
 
-.food-pics {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15px;
-  margin-bottom: 20px;
-  img {
-    @media only screen and (max-width: $mobile-breakpoint) {
-      width: 75px;
-      height: 75px;
+.dessert-info {
+  font-weight: bold;
+  text-align: center;
+  margin: 0px 0px 20px 0px;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 18px;
+  }
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    font-size: 20px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
+    font-size: 22px;
+  }
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+    font-size: 24px;
+  }
+}
+
+.header-photo-container {
+  width: 100%;
+  .menu-header-wrapper {
+    @media only screen and (min-width: $tablet-min-breakpoint) {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 60% 40%;
+      align-items: center;
+      justify-items: center;
+    }
+  }
+  .food-pics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-items: center;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    img {
       border-radius: 10px;
+      @media only screen and (max-width: $small-mobile-breakpoint) {
+        width: 55px;
+        height: 55px;
+      }
+      @media only screen and (min-width: $mobile-min-breakpoint) and (max-width: $mobile-breakpoint) {
+        width: 70px;
+        height: 70px;
+      }
+      @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+        width: 150px;
+        height: 150px;
+      }
+      @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
+        width: 200px;
+        height: 200px;
+      }
+      @media only screen and (min-width: $desktop-min-breakpoint) {
+        width: 275px;
+        height: 275px;
+      }
     }
   }
 }
+
 .menu-category-containers {
+  display: grid;
+  grid-gap: 12px;
   @media only screen and (min-width: $tablet-min-breakpoint) {
-    display: grid;
     grid-template-columns: 50% 50%;
-    grid-gap: 12px;
+    div:nth-child(7) {
+      grid-row: 1 / 6;
+    }
   }
 }
 
 .menu-category-collapsible {
-  @media only screen and (max-width: $mobile-breakpoint) {
-    display: grid;
-    grid-gap: 10px;
-    width: 85vw;
-  }
+  display: grid;
+  grid-gap: 10px;
+  width: 85vw;
 }
 
 input[type="checkbox"] {
@@ -135,16 +201,25 @@ input[type="checkbox"] {
 
 .lbl-toggle {
   display: block;
-
   padding: 1rem;
-
   color: white;
-  background: #3d908a;
-
+  background: $island-jo-teal;
   cursor: pointer;
-
-  border-radius: 7px;
   transition: all 0.25s ease-out;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    border-radius: 7px;
+  }
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    font-size: 25px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
+    font-size: 30px;
+  }
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+    font-size: 35px;
+  }
 }
 
 .lbl-toggle:hover {
@@ -178,10 +253,12 @@ input[type="checkbox"] {
 }
 
 .collapsible-content {
-  max-height: 0px;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  transition: max-height 0.25s ease-in-out;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    overflow-y: scroll;
+    max-height: 0px;
+    -webkit-overflow-scrolling: touch;
+    transition: max-height 0.25s ease-in-out;
+  }
 }
 
 .toggle:checked + .lbl-toggle + .collapsible-content {

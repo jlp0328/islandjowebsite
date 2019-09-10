@@ -1,3 +1,6 @@
+$small-mobile-breakpoint: 359px;
+
+$mobile-min-breakpoint: 360px;
 $mobile-breakpoint: 450px;
 
 $tablet-breakpoint: 900px;
@@ -10,16 +13,46 @@ $desktop-min-breakpoint: 1251px;
 
 $mobile-nav-height: 60px;
 $standard-nav-height: 75px;
-$desktop-nav-height: 90px;
+$desktop-nav-height: 94px;
 
-$main-container-padding: 10px 25px 90px 25px;
+$main-container-padding-mobile: 10px 25px 100px 25px;
+$main-container-padding: 10px 50px 100px 50px;
 $main-container-min-height: 250px;
 
 $island-jo-pink: #e24665;
+$island-jo-teal: #3d908a;
+
+//For nav... to indicate page that you're currently on
+.active--exact active {
+  background: black;
+}
 
 h1 {
   margin: unset;
-  @media only screen and (max-width: $mobile-breakpoint) {
+  word-break: break-all;
+  text-align: center;
+  @media only screen and (max-width: $small-mobile-breakpoint) {
+    font-size: 27px;
+  }
+  @media only screen and (min-width: $mobile-min-breakpoint) and (max-width: $mobile-breakpoint) {
+    font-size: 32px;
+  }
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    font-size: 36px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
+    font-size: 44px;
+  }
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+    font-size: 48px;
+  }
+}
+
+h2 {
+  @media only screen and (max-width: $small-mobile-breakpoint) {
+    font-size: 25px;
+  }
+  @media only screen and (min-width: $mobile-min-breakpoint) and (max-width: $mobile-breakpoint) {
     font-size: 28px;
   }
   @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
@@ -29,25 +62,6 @@ h1 {
     font-size: 36px;
   }
   @media only screen and (min-width: $desktop-min-breakpoint) {
-    font-size: 48px;
-  }
-}
-
-h2 {
-  @media only screen and (max-width: $mobile-breakpoint) {
-    // font-size: 22px;
-    font-size: 30px;
-  }
-  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
-    // font-size: 25px;
-    font-size: 33px;
-  }
-  @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
-    // font-size: 28px;
-    font-size: 36px;
-  }
-  @media only screen and (min-width: $desktop-min-breakpoint) {
-    // font-size: 36px;
     font-size: 40px;
   }
 }
@@ -56,4 +70,11 @@ h3 {
   @media only screen and (max-width: $mobile-breakpoint) {
     font-size: 18px;
   }
+}
+
+.flex-center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

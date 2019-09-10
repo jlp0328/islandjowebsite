@@ -15,5 +15,7 @@ export default Object({
     "Served with your choice of chips, pasta salad, potato salad, or slaw.",
   SOUPS: "Soup is offered on a seasonal basis.",
   WRAPS:
-    "Wraps are served on your choice of wheat, spinach, or garlic herb wrap."
+    "Wraps are served on your choice of wheat, spinach, or garlic herb wrap.",
+  DESSERTS:
+    "We also offer a rotating menu of baked goods and desserts that includes pound cake, brownies, and more!"
 });

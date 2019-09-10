@@ -2,7 +2,7 @@
   <Main>
     <div class="contact-main-wrapper">
       <section class="contact-header">
-        <div>
+        <div class="flex-center-content">
           <h2>Contact Us</h2>
           <p class="restaurant-hours">Open Daily, 7:30am - 2pm</p>
         </div>
@@ -53,6 +53,9 @@ export default {
   align-items: center;
   padding: $main-container-padding;
   min-height: $main-container-min-height;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    padding: $main-container-padding-mobile;
+  }
   @media only screen and (min-width: $tablet-min-breakpoint) {
     margin-top: $desktop-nav-height;
   }
@@ -71,18 +74,22 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
 }
 .restaurant-hours {
+  font-weight: bold;
+  text-align: center;
+  margin: unset;
   @media only screen and (max-width: $mobile-breakpoint) {
-    font-size: 25px;
-    font-weight: bold;
-    margin: unset;
+    font-size: 22px;
+  }
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    font-size: 28px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
+    font-size: 30px;
+  }
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+    font-size: 32px;
   }
 }
 .details-wrapper {

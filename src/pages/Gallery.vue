@@ -1,13 +1,13 @@
 <template>
   <Main>
-    <div class="main-menu-container">
+    <div class="flex-center-content main-menu-container">
       <section>
         <h2 v-if="$mq === 'mobile'">Gallery</h2>
         <Header v-if="$mq !== 'mobile'" />
       </section>
       <section class="photos-wrapper">
         <div v-for="photo in this.photos" :key="photo.id">
-          <g-image :src="photo.photo" />
+          <g-image :src="photo.photo" fit="contain" quality="100" />
         </div>
       </section>
     </div>
@@ -52,9 +52,6 @@ export default {
 
 <style lang="scss" scoped>
 .main-menu-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   @media only screen and (min-width: $tablet-min-breakpoint) {
     margin-top: $desktop-nav-height;
   }
@@ -70,29 +67,33 @@ export default {
   display: grid;
   justify-items: center;
   align-items: center;
+  grid-gap: 12px;
+  grid-template-columns: 50% 50%;
   @media only screen and (max-width: $mobile-breakpoint) {
     grid-template-columns: 100%;
-    grid-gap: 12px;
     padding-bottom: 65px;
   }
 }
 .g-image {
-  width: 200px;
+  width: 300px;
+  border-radius: 10px;
   height: auto;
-  @media only screen and (max-width: $tablet-breakpoint) {
-    width: 300px;
+  @media only screen and (orientation: portrait) and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    width: 350px;
   }
+
+  @media only screen and (orientation: landscape) and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    width: 400px;
+  }
+
   @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
-    width: 500px;
+    width: 450px;
   }
 
   @media only screen and (min-width: $desktop-min-breakpoint) {
     width: 600px;
   }
 
-  @media only screen and (orientation: portrait) and (min-width: $tablet-min-breakpoint) {
-    width: 450px;
-  }
   @media only screen and (min-width: $laptop-min-breakpoint) and (orientation: portrait) {
     width: 750px;
   }

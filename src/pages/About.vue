@@ -1,7 +1,7 @@
 <template>
   <div class="main-wrapper">
     <section class="welcome-icon-wrapper">
-      <div class="welcome-only">
+      <div class="flex-center-content welcome-only">
         <h1>Welcome to Island Jo</h1>
         <h2>Oak Island, NC</h2>
       </div>
@@ -34,33 +34,26 @@ export default {
   padding: $main-container-padding;
   min-height: $main-container-min-height;
   overflow-y: scroll;
-  margin-top: $standard-nav-height;
+  margin-top: $desktop-nav-height;
   @media only screen and (max-width: $mobile-breakpoint) {
+    padding: $main-container-padding-mobile;
     margin-top: unset;
   }
-  @media only screen and (min-width: $desktop-min-breakpoint) {
-    margin-top: $desktop-nav-height;
+  @media only screen and (min-width: $tablet-breakpoint) {
+    margin-top: 100px;
   }
 }
 
 .welcome-icon-wrapper {
   @media only screen and (min-width: $mobile-breakpoint) {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 60% 40%;
     justify-items: center;
   }
 }
 
 .welcome-only {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   @media only screen and (max-width: $mobile-breakpoint) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     position: relative;
   }
 }

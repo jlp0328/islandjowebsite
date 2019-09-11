@@ -79,33 +79,28 @@ export default {
 //   }
 // }
 .item-details-bev {
-  @media only screen and (max-width: $mobile-breakpoint) {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    align-items: center;
-    justify-items: center;
-  }
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-items: center;
 }
+
 .item-details-main {
-  // @media only screen and (max-width: $mobile-breakpoint) {
   display: grid;
   grid-template-columns: 80% 20%;
   align-items: center;
   justify-items: start;
-  // }
 }
 
 .item-details-soup {
-  @media only screen and (max-width: $mobile-breakpoint) {
-    display: grid;
-    grid-template-columns: 60% 20% 20%;
-    align-items: center;
-    justify-items: start;
-    .size-center {
-      text-align: center;
-      .underline {
-        text-decoration: underline;
-      }
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  align-items: center;
+  justify-items: start;
+  .size-center {
+    text-align: center;
+    .underline {
+      text-decoration: underline;
     }
   }
 }

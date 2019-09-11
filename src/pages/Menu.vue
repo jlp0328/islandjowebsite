@@ -21,7 +21,7 @@
           v-for="(value, name) in this.groupedMenu"
           v-bind:key="name"
           v-bind:class="isMobile"
-          class
+          class="menu-category-div"
         >
           <input v-if="$mq === 'mobile'" :id="name" class="toggle" type="checkbox" />
           <label :for="name" class="lbl-toggle">{{name | capitalize }}</label>
@@ -91,7 +91,11 @@ export default {
     allMenu = orderBy(allMenu, ["category"]);
     this.groupedMenu = groupBy(allMenu, "category");
     this.dessert = MenuHeadings.DESSERTS;
-  }
+  },
+  mounted() {
+    this.getHeightCategories();
+  },
+  methods: {}
 };
 </script>
 
@@ -152,6 +156,7 @@ export default {
     justify-items: center;
     grid-gap: 10px;
     margin-bottom: 20px;
+    max-width: 98%;
     img {
       border-radius: 10px;
       @media only screen and (max-width: $small-mobile-breakpoint) {
@@ -180,11 +185,42 @@ export default {
 
 .menu-category-containers {
   display: grid;
-  grid-gap: 12px;
+  padding-bottom: 200px;
+  grid-gap: 15px;
+  @media only screen and (min-width: $tablet-min-breakpoint) and (orientation: portrait) {
+    div:nth-child(4) {
+      grid-row: 6;
+      grid-column: 2;
+    }
+  }
+
+  @media only screen and (min-width: $tablet-min-breakpoint) and (orientation: landscape) {
+    div:nth-child(4) {
+      margin-top: 200px;
+      grid-row: 5;
+      grid-column: 2;
+    }
+  }
+
   @media only screen and (min-width: $tablet-min-breakpoint) {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+    grid-auto-flow: dense;
+    div:nth-child(2) {
+      grid-row: 1;
+      grid-column: 1;
+    }
+    div:nth-child(3) {
+      grid-row: 2;
+      grid-column: 1;
+    }
+    div:nth-child(5) {
+      grid-row: 3;
+      grid-column: 1;
+    }
     div:nth-child(7) {
       grid-row: 1 / 6;
+      grid-column: 2;
     }
   }
 }
@@ -222,58 +258,54 @@ input[type="checkbox"] {
   }
 }
 
-.lbl-toggle:hover {
-  color: white;
-}
-
-.lbl-toggle::before {
-  content: " ";
-  display: inline-block;
-
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 5px solid currentColor;
-
-  vertical-align: middle;
-  margin-right: 0.7rem;
-  transform: translateY(-2px);
-
-  transition: transform 0.2s ease-out;
-}
-
 .collapsible-content .content-inner {
   background: rgba(250, 224, 66, 0.2);
   border-bottom: 1px solid rgba(250, 224, 66, 0.45);
-
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   padding: 0.5rem 1rem;
-
   margin-bottom: 10px;
 }
 
-.collapsible-content {
-  @media only screen and (max-width: $mobile-breakpoint) {
+//Only for expand collapse used on mobile
+@media only screen and (max-width: $mobile-breakpoint) {
+  .lbl-toggle:hover {
+    color: white;
+  }
+  .lbl-toggle::before {
+    content: " ";
+    display: inline-block;
+
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid currentColor;
+
+    vertical-align: middle;
+    margin-right: 0.7rem;
+    transform: translateY(-2px);
+
+    transition: transform 0.2s ease-out;
+  }
+
+  .collapsible-content {
     overflow-y: scroll;
     max-height: 0px;
     -webkit-overflow-scrolling: touch;
     transition: max-height 0.25s ease-in-out;
   }
-}
 
-.toggle:checked + .lbl-toggle + .collapsible-content {
-  max-height: 350px;
-  @media only screen and (max-width: $mobile-breakpoint) {
+  .toggle:checked + .lbl-toggle::before {
+    transform: rotate(90deg) translateX(-3px);
+  }
+
+  .toggle:checked + .lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: 350px;
     transform: translateY(-10px);
   }
-}
-
-.toggle:checked + .lbl-toggle::before {
-  transform: rotate(90deg) translateX(-3px);
-}
-
-.toggle:checked + .lbl-toggle {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
 }
 </style>

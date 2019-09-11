@@ -8,7 +8,7 @@ export default Object({
   KIDS: "Served with chips and a cookie.",
   QUICHE: "Served with a side of fruit.",
   SALADS:
-    "Dressing choices include: Homemade Ranch, Bleu Cheese, 1000 Island, Balsamic Vinagrette, Honey Mustard and Italian",
+    "Dressing choices include: Homemade Ranch, Bleu Cheese, 1000 Island, Balsamic Vinagrette, and Honey Mustard.",
   SANDWICHES:
     "Sandwiches are served on your choice of bagel, croissant, wheat, rye, or sourdough. Served with your choice of chips, pasta salad, potato salad, or slaw.",
   SANDWICHES_SIDES:

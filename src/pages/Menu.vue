@@ -93,10 +93,9 @@ export default {
     allMenu = orderBy(allMenu, ["category"]);
     this.groupedMenu = groupBy(allMenu, "category");
     this.dessert = MenuHeadings.DESSERTS;
-
-    window.addEventListener("resize", this.resizeAllGridItems);
   },
   mounted() {
+    window.addEventListener("resize", this.resizeAllGridItems);
     this.resizeAllGridItems();
   },
   methods: {
@@ -214,38 +213,11 @@ export default {
   padding-bottom: 200px;
   grid-gap: 10px;
 
-  // @media only screen and (min-width: $tablet-min-breakpoint) and (orientation: portrait) {
-  //   div:nth-child(4) {
-  //     grid-row: 6;
-  //     grid-column: 2;
-  //   }
-  // }
-
-  // @media only screen and (min-width: $tablet-min-breakpoint) and (orientation: landscape) {
-  //   div:nth-child(4) {
-  //     margin-top: 200px;
-  //     grid-row: 5;
-  //     grid-column: 2;
-  //   }
-  // }
-
   @media only screen and (min-width: $tablet-min-breakpoint) {
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 10px;
     align-items: flex-start;
     grid-auto-flow: dense;
-    // div:nth-child(2) {
-    //   grid-row: 1;
-    //   grid-column: 1;
-    // }
-    // div:nth-child(3) {
-    //   grid-row: 2;
-    //   grid-column: 1;
-    // }
-    // div:nth-child(5) {
-    //   grid-row: 3;
-    //   grid-column: 1;
-    // }
     div:nth-child(7) {
       grid-row-start: 1;
       grid-column: 2;

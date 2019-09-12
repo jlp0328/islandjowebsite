@@ -67,8 +67,9 @@ export default {
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-gap: 12px;
-  grid-template-columns: 50% 50%;
+  grid-gap: 20px;
+  grid-template-columns: 49% 49%;
+  padding-bottom: 100px;
   @media only screen and (max-width: $mobile-breakpoint) {
     grid-template-columns: 100%;
     padding-bottom: 65px;

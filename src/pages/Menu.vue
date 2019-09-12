@@ -23,11 +23,13 @@
           v-bind:class="isMobile"
           class="menu-category-div"
         >
-          <input v-if="$mq === 'mobile'" :id="name" class="toggle" type="checkbox" />
-          <label :for="name" class="lbl-toggle">{{name | capitalize }}</label>
-          <div class="collapsible-content">
-            <div class="content-inner">
-              <SubMenu :menuCategory="name" :itemDetails="value" />
+          <div class="indv-menu-category">
+            <input v-if="$mq === 'mobile'" :id="name" class="toggle" type="checkbox" />
+            <label :for="name" class="lbl-toggle">{{name | capitalize }}</label>
+            <div class="collapsible-content">
+              <div class="content-inner">
+                <SubMenu :menuCategory="name" :itemDetails="value" />
+              </div>
             </div>
           </div>
         </div>
@@ -91,11 +93,36 @@ export default {
     allMenu = orderBy(allMenu, ["category"]);
     this.groupedMenu = groupBy(allMenu, "category");
     this.dessert = MenuHeadings.DESSERTS;
+
+    window.addEventListener("resize", this.resizeAllGridItems);
   },
   mounted() {
-    this.getHeightCategories();
+    this.resizeAllGridItems();
   },
-  methods: {}
+  methods: {
+    reSizeGridItem(item) {
+      let grid = document.getElementsByClassName("menu-category-containers")[0];
+      let rowHeight = parseInt(
+        window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
+      );
+      let rowGap = parseInt(
+        window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
+      );
+      let rowSpan = Math.ceil(
+        (item.querySelector(".indv-menu-category").getBoundingClientRect()
+          .height +
+          rowGap) /
+          (rowHeight + rowGap)
+      );
+      item.style.gridRowEnd = "span " + rowSpan;
+    },
+    resizeAllGridItems() {
+      let allItems = document.getElementsByClassName("menu-category-div");
+      for (let x = 0; x < allItems.length; x++) {
+        this.reSizeGridItem(allItems[x]);
+      }
+    }
+  }
 };
 </script>
 
@@ -156,7 +183,6 @@ export default {
     justify-items: center;
     grid-gap: 10px;
     margin-bottom: 20px;
-    max-width: 98%;
     img {
       border-radius: 10px;
       @media only screen and (max-width: $small-mobile-breakpoint) {
@@ -186,40 +212,42 @@ export default {
 .menu-category-containers {
   display: grid;
   padding-bottom: 200px;
-  grid-gap: 15px;
-  @media only screen and (min-width: $tablet-min-breakpoint) and (orientation: portrait) {
-    div:nth-child(4) {
-      grid-row: 6;
-      grid-column: 2;
-    }
-  }
+  grid-gap: 10px;
 
-  @media only screen and (min-width: $tablet-min-breakpoint) and (orientation: landscape) {
-    div:nth-child(4) {
-      margin-top: 200px;
-      grid-row: 5;
-      grid-column: 2;
-    }
-  }
+  // @media only screen and (min-width: $tablet-min-breakpoint) and (orientation: portrait) {
+  //   div:nth-child(4) {
+  //     grid-row: 6;
+  //     grid-column: 2;
+  //   }
+  // }
+
+  // @media only screen and (min-width: $tablet-min-breakpoint) and (orientation: landscape) {
+  //   div:nth-child(4) {
+  //     margin-top: 200px;
+  //     grid-row: 5;
+  //     grid-column: 2;
+  //   }
+  // }
 
   @media only screen and (min-width: $tablet-min-breakpoint) {
     grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 10px;
     align-items: flex-start;
     grid-auto-flow: dense;
-    div:nth-child(2) {
-      grid-row: 1;
-      grid-column: 1;
-    }
-    div:nth-child(3) {
-      grid-row: 2;
-      grid-column: 1;
-    }
-    div:nth-child(5) {
-      grid-row: 3;
-      grid-column: 1;
-    }
+    // div:nth-child(2) {
+    //   grid-row: 1;
+    //   grid-column: 1;
+    // }
+    // div:nth-child(3) {
+    //   grid-row: 2;
+    //   grid-column: 1;
+    // }
+    // div:nth-child(5) {
+    //   grid-row: 3;
+    //   grid-column: 1;
+    // }
     div:nth-child(7) {
-      grid-row: 1 / 6;
+      grid-row-start: 1;
       grid-column: 2;
     }
   }
@@ -264,7 +292,9 @@ input[type="checkbox"] {
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   padding: 0.5rem 1rem;
-  margin-bottom: 10px;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    margin-bottom: 10px;
+  }
 }
 
 //Only for expand collapse used on mobile

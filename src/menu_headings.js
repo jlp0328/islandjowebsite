@@ -12,7 +12,7 @@ export default Object({
   SANDWICHES:
     "Sandwiches are served on your choice of bagel, croissant, wheat, rye, or sourdough. Served with your choice of chips, pasta salad, potato salad, or slaw.",
   SANDWICHES_SIDES:
-    "Served with your choice of chips, pasta salad, potato salad, or slaw.",
+    "Served with your choice of chips, pasta salad, potato salad, or slaw. Half sandwiches served only on rye, sourdough, or wheat bread.",
   SOUPS: "Soup is offered on a seasonal basis.",
   WRAPS:
     "Wraps are served on your choice of wheat, spinach, or garlic herb wrap.",

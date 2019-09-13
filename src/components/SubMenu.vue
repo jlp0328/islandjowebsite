@@ -75,12 +75,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .main-item-details-wrapper {
-//   @media only screen and (min-width: $tablet-min-breakpoint) {
-//     display: grid;
-//     grid-template-columns: repeat(2, 1fr);
-//   }
-// }
+.main-item-details-wrapper {
+  @media only screen and (min-width: $tablet-min-breakpoint) {
+    margin: 5px;
+  }
+}
 h3 {
   margin: 5px auto;
   @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
@@ -134,7 +133,7 @@ p {
 }
 
 .sandwich-desc {
-  margin: 0px 0px 5px 0px;
+  margin: 0px 0px 10px 0px;
   @media only screen and (max-width: $mobile-breakpoint) {
     margin-bottom: 6px;
     margin-top: unset;

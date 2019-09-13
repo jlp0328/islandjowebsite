@@ -11,7 +11,8 @@
         </div>
         <div class="food-pics">
           <g-image src="../assets/island_jo_fruit.jpg"></g-image>
-          <g-image src="../assets/coffee_bagel.jpg"></g-image>
+          <!-- <g-image src="../assets/coffee_bagel.jpg"></g-image> -->
+          <g-image src="../assets/chickensaladcp.jpg"></g-image>
           <g-image src="../assets/three_bagels.jpg"></g-image>
           <g-image src="../assets/drink_croissant.jpg"></g-image>
         </div>

@@ -31,6 +31,7 @@
             <span>7916 East Oak Island Drive</span>
             <span>Oak Island, NC 28465</span>
           </p>
+          <!-- <a href="https://g.page/IslandJo/review" target="_blank">Let us know what you think!</a> -->
         </section>
       </div>
     </div>

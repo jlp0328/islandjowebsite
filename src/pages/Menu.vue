@@ -4,7 +4,7 @@
       <section class="header-photo-container">
         <div class="menu-header-wrapper">
           <div class="flex-center-content">
-            <h2>Menu</h2>
+            <h2 v-if="$mq === 'mobile'">Menu</h2>
             <p class="dessert-info">{{this.dessert}}</p>
           </div>
           <Header v-if="$mq !== 'mobile'" />
@@ -211,7 +211,7 @@ export default {
 
 .menu-category-containers {
   display: grid;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   grid-gap: 10px;
 
   @media only screen and (min-width: $tablet-min-breakpoint) {
@@ -308,7 +308,7 @@ input[type="checkbox"] {
 
   .toggle:checked + .lbl-toggle + .collapsible-content {
     max-height: 350px;
-    transform: translateY(-10px);
+    // transform: translateY(-10px);
   }
 }
 </style>

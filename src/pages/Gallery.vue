@@ -1,13 +1,15 @@
 <template>
   <Main>
     <div class="flex-center-content main-menu-container">
-      <section>
-        <h2 v-if="$mq === 'mobile'">Gallery</h2>
-        <Header v-if="$mq !== 'mobile'" />
+      <section v-if="$mq === 'mobile'" class="header-grid">
+        <!-- <div class="flex-center-content"> -->
+        <h2>Gallery</h2>
+        <!-- </div> -->
+        <!-- <Header v-if="$mq !== 'mobile'" /> -->
       </section>
       <section class="photos-wrapper">
-        <div v-for="photo in this.photos" :key="photo.id">
-          <g-image :src="photo.photo" fit="contain" quality="100" />
+        <div class="photos-div" v-for="photo in this.photos" :key="photo.id">
+          <g-image class="ij-img" :src="photo.photo" quality="100" />
         </div>
       </section>
     </div>
@@ -46,6 +48,33 @@ export default {
         id: index
       };
     });
+  },
+  mounted() {
+    window.addEventListener("resize", this.resizeAllGridItems);
+    this.resizeAllGridItems();
+  },
+  methods: {
+    reSizeGridItem(item) {
+      let grid = document.getElementsByClassName("photos-wrapper")[0];
+      let rowHeight = parseInt(
+        window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
+      );
+      let rowGap = parseInt(
+        window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
+      );
+      let rowSpan = Math.ceil(
+        (item.querySelector(".ij-img").getBoundingClientRect().height +
+          rowGap) /
+          (rowHeight + rowGap)
+      );
+      item.style.gridRowEnd = "span " + rowSpan;
+    },
+    resizeAllGridItems() {
+      let allItems = document.getElementsByClassName("photos-div");
+      for (let x = 0; x < allItems.length; x++) {
+        this.reSizeGridItem(allItems[x]);
+      }
+    }
   }
 };
 </script>
@@ -62,13 +91,19 @@ export default {
     }
   }
 }
-
+.header-grid {
+  display: grid;
+  align-items: center;
+  width: 100%;
+  justify-items: center;
+}
 .photos-wrapper {
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-gap: 20px;
-  grid-template-columns: 49% 49%;
+  grid-gap: 15px;
+  grid-auto-rows: 20px;
+  grid-template-columns: 1fr 1fr;
   padding-bottom: 100px;
   @media only screen and (max-width: $mobile-breakpoint) {
     grid-template-columns: 100%;
@@ -92,11 +127,7 @@ export default {
   }
 
   @media only screen and (min-width: $desktop-min-breakpoint) {
-    width: 600px;
-  }
-
-  @media only screen and (min-width: $laptop-min-breakpoint) and (orientation: portrait) {
-    width: 750px;
+    width: 550px;
   }
 }
 </style>

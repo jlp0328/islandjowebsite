@@ -2,7 +2,7 @@
   <div class="footer">
     <a href="https://www.facebook.com/IslandJoCoffeeNCafe/" target="_blank" class="facebook icon"></a>
     <a href="https://www.instagram.com/islandjo_oki/" target="_blank" class="instagram icon"></a>
-    <a href="https://g.page/IslandJo/review" target="_blank" class="google icon"></a>
+    <a href="https://g.page/IslandJo?share" target="_blank" class="google icon"></a>
   </div>
 </template>
 

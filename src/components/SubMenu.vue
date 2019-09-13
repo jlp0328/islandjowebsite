@@ -9,8 +9,11 @@
         </div>
       </div>
     </div>
-    <div class="main-item-details-wrapper" v-else-if="this.menuCategory === 'sandwiches'">
-      <p class="half-sandwich">
+    <div
+      class="main-item-details-wrapper"
+      v-else-if="this.menuCategory === 'sandwiches' || this.menuCategory === 'wraps' || this.menuCategory === 'salads'"
+    >
+      <p v-if="this.menuCategory === 'sandwiches'" class="half-sandwich">
         <span>&#x1f96a;</span> eligible half sandwich
       </p>
       <div class="main-item-details-wrapper" v-for="details in this.itemDetails" :key="details.id">
@@ -78,6 +81,31 @@ export default {
 //     grid-template-columns: repeat(2, 1fr);
 //   }
 // }
+h3 {
+  margin: 5px auto;
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    font-size: 20px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
+    font-size: 24px;
+  }
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+    font-size: 28px;
+  }
+}
+
+p {
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    font-size: 18px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
+    font-size: 22px;
+  }
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+    font-size: 26px;
+  }
+}
+
 .item-details-bev {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -106,6 +134,7 @@ export default {
 }
 
 .sandwich-desc {
+  margin: 0px 0px 5px 0px;
   @media only screen and (max-width: $mobile-breakpoint) {
     margin-bottom: 6px;
     margin-top: unset;
@@ -120,5 +149,6 @@ export default {
 
 .item-name {
   font-weight: bold;
+  margin: unset;
 }
 </style>

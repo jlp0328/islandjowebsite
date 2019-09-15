@@ -1,11 +1,32 @@
 <template>
   <Main>
     <div class="flex-center-content main-menu-container">
-      <section v-if="$mq === 'mobile'" class="header-grid">
-        <!-- <div class="flex-center-content"> -->
-        <h2>Gallery</h2>
-        <!-- </div> -->
-        <!-- <Header v-if="$mq !== 'mobile'" /> -->
+      <section class="header-grid">
+        <div class="flex-center-content">
+          <h2 v-if="$mq === 'mobile'">Gallery</h2>
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FIslandJoCoffeeNCafe%2Fvideos%2F903258623386164%2F&width=300&show_text=false&autoplay=true&appId=177459640055&height=300"
+            style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            height="200"
+            width="200"
+            allowtransparency="true"
+            allow="encrypted-media"
+            allowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="follow-us" v-if="$mq !== 'mobile'">
+          <p>
+            Follow us on
+            <a
+              href="https://www.facebook.com/IslandJoCoffeeNCafe/"
+              target="_blank"
+            >Facebook</a> and
+            <a href="https://www.instagram.com/islandjo_oki/" target="_blank">Instagram</a> for updates on what's brewing!
+          </p>
+        </div>
+        <Header v-if="$mq !== 'mobile'" />
       </section>
       <section class="photos-wrapper">
         <div class="photos-div" v-for="photo in this.photos" :key="photo.id">
@@ -96,6 +117,40 @@ export default {
   align-items: center;
   width: 100%;
   justify-items: center;
+  @media only screen and (min-width: $tablet-min-breakpoint) {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px 0px;
+  }
+}
+
+iframe {
+  border-radius: 10px;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.follow-us {
+  text-align: center;
+  word-break: wrap;
+  font-weight: bold;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 18px;
+  }
+  @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
+    font-size: 20px;
+  }
+  @media only screen and (min-width: $laptop-min-breakpoint) and (max-width: $laptop-breakpoint) {
+    font-size: 22px;
+  }
+  @media only screen and (min-width: $desktop-min-breakpoint) {
+    font-size: 24px;
+  }
+  a:-webkit-any-link {
+    color: unset;
+    text-decoration: none;
+  }
 }
 .photos-wrapper {
   display: grid;
@@ -110,6 +165,7 @@ export default {
     padding-bottom: 65px;
   }
 }
+
 .g-image {
   width: 300px;
   border-radius: 10px;

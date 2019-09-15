@@ -41,16 +41,4 @@ export default {};
     width: 25px;
   }
 }
-
-.facebook {
-  background: transparent url("../assets/facebook.svg") no-repeat;
-}
-
-.instagram {
-  background: transparent url("../assets/instagram.svg") no-repeat;
-}
-
-.google {
-  background: transparent url("../assets/google.svg") no-repeat;
-}
 </style>

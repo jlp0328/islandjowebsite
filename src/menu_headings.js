@@ -15,5 +15,5 @@ export default Object({
   WRAPS:
     "Wraps are served on your choice of wheat, spinach, or garlic herb wrap.",
   DESSERTS:
-    "We offer a rotating menu of baked goods and desserts that includes pound cake, brownies, and more!"
+    "In addition to our coffee, breakfast, and lunch menus, we offer a rotating assortment of baked goods and desserts that includes pound cake, brownies, and more!"
 });

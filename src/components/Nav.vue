@@ -57,7 +57,7 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  @media only screen and (min-width: $laptop-min-breakpoint) {
+  @media only screen and (min-width: $laptop-breakpoint) {
     height: $desktop-nav-height;
   }
 }

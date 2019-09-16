@@ -5,12 +5,12 @@
         <div class="flex-center-content">
           <h2 v-if="$mq === 'mobile'">Gallery</h2>
           <iframe
-            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FIslandJoCoffeeNCafe%2Fvideos%2F903258623386164%2F&width=300&show_text=false&autoplay=true&appId=177459640055&height=300"
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FIslandJoCoffeeNCafe%2Fvideos%2F903258623386164%2F&width=250&show_text=false&autoplay=true&appId=177459640055&height=250"
             style="border:none;overflow:hidden"
             scrolling="no"
             frameborder="0"
-            height="200"
-            width="200"
+            height="250"
+            width="250"
             allowtransparency="true"
             allow="encrypted-media"
             allowfullscreen="true"
@@ -71,8 +71,8 @@ export default {
     });
   },
   mounted() {
-    window.addEventListener("resize", this.resizeAllGridItems);
-    this.resizeAllGridItems();
+    // window.addEventListener("resize", this.resizeAllGridItems);
+    // this.resizeAllGridItems();
   },
   methods: {
     reSizeGridItem(item) {
@@ -157,7 +157,7 @@ iframe {
   justify-items: center;
   align-items: center;
   grid-gap: 15px;
-  grid-auto-rows: 20px;
+  //   grid-auto-rows: 20px;
   grid-template-columns: 1fr 1fr;
   padding-bottom: 100px;
   @media only screen and (max-width: $mobile-breakpoint) {

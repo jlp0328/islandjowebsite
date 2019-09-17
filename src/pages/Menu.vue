@@ -211,10 +211,10 @@ export default {
 
 .menu-category-containers {
   display: grid;
-  padding-bottom: 100px;
   grid-gap: 10px;
 
   @media only screen and (min-width: $tablet-min-breakpoint) {
+    padding-bottom: 25px;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 10px;
     align-items: flex-start;
@@ -307,8 +307,7 @@ input[type="checkbox"] {
   }
 
   .toggle:checked + .lbl-toggle + .collapsible-content {
-    max-height: 350px;
-    // transform: translateY(-10px);
+    max-height: 100%;
   }
 }
 </style>

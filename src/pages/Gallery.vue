@@ -128,6 +128,7 @@ iframe {
   @media only screen and (max-width: $mobile-breakpoint) {
     width: 300px;
     height: 300px;
+    margin-bottom: 15px;
   }
 }
 

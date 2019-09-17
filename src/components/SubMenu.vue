@@ -82,6 +82,7 @@ export default {
 }
 h3 {
   margin: 5px auto;
+  text-align: center;
   @media only screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-breakpoint) {
     font-size: 20px;
   }

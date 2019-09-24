@@ -15,16 +15,16 @@ module.exports = {
     {
       use: "gridsome-source-google-sheets",
       options: {
-        sheetId: "1hnSgPEPzV3juRxuWB-melNUApKiNwM0wQyFOeqcfkIE",
-        apiKey: "AIzaSyDbkx3KI-bBCI0aRVgbbRwC0p7tymDvcg4",
+        sheetId: process.env.ISLAND_JO_MENU_SHEET,
+        apiKey: process.env.GOOGLE_API_KEY,
         type: "Menu"
       }
     },
     {
       use: "gridsome-source-google-sheets",
       options: {
-        sheetId: "1GZiGYPdnldJ41vju2zukUS9O-E7WOOuVjE06wZxtpZ8",
-        apiKey: "AIzaSyDbkx3KI-bBCI0aRVgbbRwC0p7tymDvcg4",
+        sheetId: process.env.ISLAND_JO_GALLERY_SHEET,
+        apiKey: process.env.GOOGLE_API_KEY,
         type: "Gallery"
       }
     }

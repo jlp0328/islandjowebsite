@@ -57,7 +57,7 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: 24px;
-    color: white;
+    color: white !important;
     text-decoration: none;
     @media only screen and (min-width: $laptop-min-breakpoint) {
       font-size: 32px;
@@ -65,6 +65,13 @@ export default {
   }
   @media only screen and (min-width: $laptop-breakpoint) {
     height: $desktop-nav-height;
+  }
+}
+
+.phone-menu {
+  a {
+    color: white;
+    text-decoration: none;
   }
 }
 

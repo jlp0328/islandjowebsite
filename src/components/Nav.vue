@@ -56,13 +56,21 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    @media only screen and (min-width: $laptop-min-breakpoint) {
+      font-size: 32px;
+    }
   }
   @media only screen and (min-width: $laptop-breakpoint) {
     height: $desktop-nav-height;
   }
 }
 
-a:-webkit-any-link {
+a:-webkit-any-link,
+a:-moz-any-link,
+a:any-link {
   font-size: 24px;
   color: white;
   text-decoration: none;

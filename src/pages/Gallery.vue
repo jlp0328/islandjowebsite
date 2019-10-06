@@ -2,20 +2,7 @@
   <Main>
     <div class="flex-center-content main-menu-container">
       <section class="header-grid">
-        <div class="flex-center-content">
-          <h2 v-if="$mq === 'mobile'">Gallery</h2>
-          <iframe
-            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FIslandJoCoffeeNCafe%2Fvideos%2F903258623386164%2F&width=250&show_text=false&autoplay=true&appId=177459640055&height=250"
-            style="border:none;overflow:hidden"
-            scrolling="no"
-            frameborder="0"
-            height="250"
-            width="250"
-            allowtransparency="true"
-            allow="encrypted-media"
-            allowfullscreen="true"
-          ></iframe>
-        </div>
+        <h2 v-if="$mq === 'mobile'">Gallery</h2>
         <div class="follow-us" v-if="$mq !== 'mobile'">
           <p>
             Follow us on
@@ -118,17 +105,8 @@ export default {
   width: 100%;
   justify-items: center;
   @media only screen and (min-width: $tablet-min-breakpoint) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 50% 50%;
     padding: 20px 0px;
-  }
-}
-
-iframe {
-  border-radius: 10px;
-  @media only screen and (max-width: $mobile-breakpoint) {
-    width: 300px;
-    height: 300px;
-    margin-bottom: 15px;
   }
 }
 
@@ -148,7 +126,8 @@ iframe {
   @media only screen and (min-width: $desktop-min-breakpoint) {
     font-size: 24px;
   }
-  a:-webkit-any-link {
+  a:-webkit-any-link,
+  a {
     color: unset;
     text-decoration: none;
   }

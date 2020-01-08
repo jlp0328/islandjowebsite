@@ -4,7 +4,7 @@
       <section class="contact-header">
         <div class="flex-center-content">
           <h2>Contact Us</h2>
-          <p class="restaurant-hours">Open Daily, 7:30am - 2pm</p>
+          <p class="restaurant-hours">Open Daily, 8am - 2pm</p>
         </div>
 
         <Header v-if="$mq !== 'mobile'" />
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Header from "../components/Header";
+import Header from '../components/Header';
 export default {
   components: {
     Header

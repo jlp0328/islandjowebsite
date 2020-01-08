@@ -9,8 +9,13 @@
             <a
               href="https://www.facebook.com/IslandJoCoffeeNCafe/"
               target="_blank"
-            >Facebook</a> and
-            <a href="https://www.instagram.com/islandjo_oki/" target="_blank">Instagram</a> for updates on what's brewing!
+              >Facebook</a
+            >
+            and
+            <a href="https://www.instagram.com/islandjo_oki/" target="_blank"
+              >Instagram</a
+            >
+            for updates on what's brewing!
           </p>
         </div>
         <Header v-if="$mq !== 'mobile'" />
@@ -37,7 +42,7 @@ query Photo {
 </static-query>
 
 <script>
-import Header from "../components/Header";
+import Header from '../components/Header';
 
 export default {
   components: {
@@ -63,22 +68,22 @@ export default {
   },
   methods: {
     reSizeGridItem(item) {
-      let grid = document.getElementsByClassName("photos-wrapper")[0];
+      let grid = document.getElementsByClassName('photos-wrapper')[0];
       let rowHeight = parseInt(
-        window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
+        window.getComputedStyle(grid).getPropertyValue('grid-auto-rows')
       );
       let rowGap = parseInt(
-        window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
+        window.getComputedStyle(grid).getPropertyValue('grid-row-gap')
       );
       let rowSpan = Math.ceil(
-        (item.querySelector(".ij-img").getBoundingClientRect().height +
+        (item.querySelector('.ij-img').getBoundingClientRect().height +
           rowGap) /
           (rowHeight + rowGap)
       );
-      item.style.gridRowEnd = "span " + rowSpan;
+      item.style.gridRowEnd = 'span ' + rowSpan;
     },
     resizeAllGridItems() {
-      let allItems = document.getElementsByClassName("photos-div");
+      let allItems = document.getElementsByClassName('photos-div');
       for (let x = 0; x < allItems.length; x++) {
         this.reSizeGridItem(allItems[x]);
       }
@@ -114,6 +119,7 @@ export default {
   text-align: center;
   word-break: wrap;
   font-weight: bold;
+  padding: 20px;
   @media only screen and (max-width: $mobile-breakpoint) {
     font-size: 18px;
   }

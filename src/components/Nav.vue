@@ -14,7 +14,7 @@
           <g-link class to="/gallery">Gallery</g-link>
           <g-link class to="/contact">Contact</g-link>
           <div class="restaurant-details">
-            <h3>Open Daily, 7:30am - 2pm</h3>
+            <h3>Open Daily, 8am - 2pm</h3>
             <h3>
               <a href="tel:1-910-250-1677">(910) 250 - 1677</a>
             </h3>

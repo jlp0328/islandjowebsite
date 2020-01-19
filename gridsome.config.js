@@ -1,38 +1,44 @@
-const path = require("path");
+const path = require('path');
 
 function addStyleResource(rule) {
   rule
-    .use("style-resource")
-    .loader("style-resources-loader")
+    .use('style-resource')
+    .loader('style-resources-loader')
     .options({
-      patterns: [path.resolve(__dirname, "./src/assets/*.scss")]
+      patterns: [path.resolve(__dirname, './src/assets/*.scss')]
     });
 }
 
 module.exports = {
-  siteName: "Island Jo Coffee-n-Cafe",
+  siteName: 'Island Jo Coffee-n-Cafe',
   plugins: [
     {
-      use: "gridsome-source-google-sheets",
+      use: 'gridsome-source-google-sheets',
       options: {
         sheetId: process.env.ISLAND_JO_MENU_SHEET,
         apiKey: process.env.GOOGLE_API_KEY,
-        type: "Menu"
+        type: 'Menu'
       }
     },
     {
-      use: "gridsome-source-google-sheets",
+      use: 'gridsome-source-google-sheets',
       options: {
         sheetId: process.env.ISLAND_JO_GALLERY_SHEET,
         apiKey: process.env.GOOGLE_API_KEY,
-        type: "Gallery"
+        type: 'Gallery'
+      }
+    },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-149792079-1'
       }
     }
   ],
   chainWebpack: config => {
-    const types = ["vue-modules", "vue", "normal-modules", "normal"];
+    const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
     types.forEach(type => {
-      addStyleResource(config.module.rule("scss").oneOf(type));
+      addStyleResource(config.module.rule('scss').oneOf(type));
     });
   }
 };

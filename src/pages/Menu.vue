@@ -6,6 +6,10 @@
           <div class="flex-center-content">
             <h2 v-if="$mq === 'mobile'">Menu</h2>
             <p class="dessert-info">{{this.dessert}}</p>
+            <strong>Effective June 1, 2020:</strong>Our espresso machine is broken, but we
+            still have drip coffee, iced coffee, and chai tea. We apologize for any
+            inconvenience!
+            <br />
           </div>
           <Header v-if="$mq !== 'mobile'" />
         </div>

@@ -12,7 +12,7 @@
     "gridsome": "^0.6.9",
     "gridsome-source-google-sheets": "^0.3.1",
     "install": "^0.13.0",
-    "npm": "^6.13.6",
+    "npm": "^6.14.6",
     "typeface-aleo": "0.0.69",
     "vue-burger-menu": "^2.0.3",
     "vue-mq": "^1.0.1"

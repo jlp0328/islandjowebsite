@@ -6,32 +6,14 @@
           <div class="flex-center-content">
             <h2 v-if="$mq === 'mobile'">Menu</h2>
             <p class="dessert-info">{{this.dessert}}</p>
+            <p class="dessert-info">To see our menu and order online, click here:</p>
           </div>
           <Header v-if="$mq !== 'mobile'" />
         </div>
         <div class="food-pics">
-          <g-image src="../assets/island_jo_fruit.jpg"></g-image>
           <g-image src="../assets/grilledchickensalad.jpg"></g-image>
           <g-image src="../assets/three_bagels.jpg"></g-image>
           <g-image src="../assets/drink_croissant.jpg"></g-image>
-        </div>
-      </section>
-      <section class="menu-category-containers">
-        <div
-          v-for="(value, name) in this.groupedMenu"
-          v-bind:key="name"
-          v-bind:class="isMobile"
-          class="menu-category-div"
-        >
-          <div class="indv-menu-category">
-            <input v-if="$mq === 'mobile'" :id="name" class="toggle" type="checkbox" />
-            <label :for="name" class="lbl-toggle">{{name | capitalize }}</label>
-            <div class="collapsible-content">
-              <div class="content-inner">
-                <SubMenu :menuCategory="name" :itemDetails="value" />
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </div>

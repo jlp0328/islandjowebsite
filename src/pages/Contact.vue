@@ -27,6 +27,12 @@
             </span>
           </p>
           <p>
+            <strong>Online Ordering:</strong>
+            <span>
+              <a target="_blank" href="https://www.toasttab.com/island-jo-oak-island-new-7916-east-oak-island-drive/v3">Click Here</a>
+            </span>
+          </p>
+          <p>
             <strong>Address:</strong>
             <span>7916 East Oak Island Drive</span>
             <span>Oak Island, NC 28465</span>
@@ -162,10 +168,6 @@ iframe {
     strong {
       font-size: 28px;
     }
-  }
-  a:-webkit-any-link {
-    text-decoration: none;
-    color: unset;
   }
 
   @media only screen and (max-width: $mobile-breakpoint) {

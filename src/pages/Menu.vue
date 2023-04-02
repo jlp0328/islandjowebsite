@@ -6,7 +6,7 @@
           <div class="flex-center-content">
             <h2 v-if="$mq === 'mobile'">Menu</h2>
             <p class="dessert-info">{{this.dessert}}</p>
-            <p class="dessert-info">To see our menu and order online, click here:</p>
+            <p class="dessert-info"><a target="_blank" href="https://www.toasttab.com/island-jo-oak-island-new-7916-east-oak-island-drive/v3">CLICK HERE to view our menu and order online</a></p>
           </div>
           <Header v-if="$mq !== 'mobile'" />
         </div>
@@ -159,7 +159,7 @@ export default {
   }
   .food-pics {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-items: center;
     grid-gap: 10px;
